@@ -40,4 +40,5 @@ AUTH_SECRET=
 
 ## Ackowledgments
 - Styling and Assets were made by adrianhajdin: https://github.com/adrianhajdin/banking
+- Many components were made using ShadCN: https://ui.shadcn.com/
    
