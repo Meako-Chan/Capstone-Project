@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    $id: {type: String, required: true},
     email: {type: String, required: true},
-    userId: { type: String, required: true, unique: true},
+    password: {type: String, required: true},
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     address: {type: String, required: true},
@@ -18,11 +17,9 @@ const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 export default User;
 
-// $id: string;
+//   $id: string;
 //   email: string;
 //   userId: string;
-//   dwollaCustomerUrl: string;
-//   dwollaCustomerId: string;
 //   firstName: string;
 //   lastName: string;
 //   address1: string;
