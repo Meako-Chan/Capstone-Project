@@ -52,7 +52,6 @@ export const signUp = async (userData: SignUpParams) => {
         })
 
         const savedUser = await user.save();
-        return user;
 
     } catch (error){
         console.error('Error', error)
