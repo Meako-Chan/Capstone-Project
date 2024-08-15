@@ -37,6 +37,14 @@ MONGO_DB_URI=
 #Secret for using NextAuth.js
 AUTH_SECRET=
 ```
+4.Run the App
+```bash
+npm run dev
+```
+Next, open http://localhost:3000 in your browser to view the project.
+
+## Page Navigation
+Upon opening the app, you may see the home page for a second, but then be immediately navigated to the sign-in page. From there, click on the blue text "sign-up" which will navigate you to the sign up page. You can then enter your information, and pressign the "Sign Up" button should navigate you to sign in using your email and password. Once validating your email and password, you will enter the home page in which you can navigate the different pages by using the navbar on the left.
 
 ## Ackowledgments
 - Styling and Assets were made by adrianhajdin: https://github.com/adrianhajdin/banking
