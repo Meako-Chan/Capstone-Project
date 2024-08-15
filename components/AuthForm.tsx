@@ -70,7 +70,7 @@ const AuthForm = ({type}: {type: string}) => {
               const newUser = await signUp(userData);
               setUser(newUser);
               console.log(newUser);
-            //   router.push('/sign-in');
+              router.push('/sign-in');
             // setUser(newUser);
         }    
 
