@@ -1,10 +1,26 @@
+"use client";
+
 import HeaderBox from '@/components/HeaderBox'
 import TotalBalanceBox from '@/components/TotalBalanceBox';
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 const Home = () => {
-    const loggedIn = { firstName: 'Michael'};
+    const name = { firstName: 'Michael'};
+    const router = useRouter();
+    const { data: session, status } = useSession();
+    console.log(session)
+    useEffect(() => {
+        if (status === "unauthenticated") {
+            router.push('/sign-in');
+        }
+    }, [status, router]);
 
-
+    if (status === "loading") {
+        return <div>Loading...</div>; // You can replace this with a loading spinner if needed
+    }
+    
     return (
         <section className="home">
             <div className="home-content">
@@ -12,7 +28,7 @@ const Home = () => {
                 <HeaderBox
                     type="greeting"
                     title="Welcome"
-                    user={loggedIn?.firstName || 'Guest'}
+                    user={name?.firstName || 'Guest'}
                     subtext="Access and manage your account & transactions."
                 />
 

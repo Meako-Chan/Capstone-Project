@@ -1,5 +1,6 @@
 'use client';
 
+import { signIn } from 'next-auth/react';
 import Link from 'next/link'
 import Image from 'next/image'
 import React, { useState } from 'react'
@@ -21,7 +22,7 @@ import CustomInput from './CustomInput';
 import { authFormSchema } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { signIn, signUp } from '@/lib/actions/user.actions';
+import { signUp } from '@/lib/actions/user.actions';
 
 
  
@@ -30,6 +31,7 @@ const AuthForm = ({type}: {type: string}) => {
   const router = useRouter()
   const [user, setUser] = useState(null)
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const formSchema = authFormSchema(type);
 
 
@@ -66,19 +68,26 @@ const AuthForm = ({type}: {type: string}) => {
               }
               console.log(userData);
               const newUser = await signUp(userData);
-            //   setUser(newUser);
+              setUser(newUser);
               console.log(newUser);
             //   router.push('/sign-in');
             // setUser(newUser);
         }    
 
         if(type === 'sign-in'){
-            // const response = await signIn({
-            //     email: data.email,
-            //     password: data.password
-            // })
-
-            // if(response) router.push('/');
+            const res = await signIn("credentials", {
+                email: data.email,
+                password: data.password,
+                redirect: false,
+              });
+              if (res?.error) {
+                setError(res.error as string);
+              }
+              if (res?.ok) {
+                console.log(res);
+                return router.push("/");
+              }
+            
         }
 
     } catch (error){

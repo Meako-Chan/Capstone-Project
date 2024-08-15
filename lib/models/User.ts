@@ -17,14 +17,3 @@ const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 export default User;
 
-//   $id: string;
-//   email: string;
-//   userId: string;
-//   firstName: string;
-//   lastName: string;
-//   address1: string;
-//   city: string;
-//   state: string;
-//   postalCode: string;
-//   dateOfBirth: string;
-//   ssn: string;

@@ -2,15 +2,14 @@
 
 import { connectDB } from "../mongodb";
 import User from "../models/User";
-import bcrypt from "bcryptjs";
 
-export const signIn = async () => {
-    try{
+// export const signIn = async () => {
+//     try{
 
-    } catch (error){
-        console.error('Error', error)
-    }
-}
+//     } catch (error){
+//         console.error('Error', error)
+//     }
+// }
 
 export const signUp = async (userData: SignUpParams) => {
     const{firstName,lastName,address,city,state,postalCode,dateOfBirth,ssn,email,password} = userData;
@@ -24,10 +23,9 @@ export const signUp = async (userData: SignUpParams) => {
                 error: 'Email already exists.'
             }
         }
-        const hashedPassword = await bcrypt.hash(password,10);
         const user = new User({
             email,
-            password: hashedPassword,
+            password,
             firstName,
             lastName,
             address,
@@ -39,6 +37,7 @@ export const signUp = async (userData: SignUpParams) => {
         })
 
         const savedUser = await user.save();
+        return user;
 
     } catch (error){
         console.error('Error', error)

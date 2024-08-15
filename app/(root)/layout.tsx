@@ -1,20 +1,26 @@
-import Sidebar from "@/components/Sidebar";
 
-export default function RootLayout({
+import Sidebar from "@/components/Sidebar";
+import { Provider } from "../provider";
+import { useSession } from "next-auth/react";
+import { redirect } from 'next/navigation';
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const loggedIn = { firstName:'Michael', lastName:'Chan'}
+
+
+  
+
 
   return (
-    <main className="flex h-screen w-full font-inter">
-        <Sidebar user={{
+    <Provider>
+      <main className="flex h-screen w-full font-inter">
+          <Sidebar user={{
               $id: "",
               email: "",
               userId: "",
-              dwollaCustomerUrl: "",
-              dwollaCustomerId: "",
               firstName: "",
               lastName: "",
               address1: "",
@@ -23,8 +29,10 @@ export default function RootLayout({
               postalCode: "",
               dateOfBirth: "",
               ssn: ""
-          }} />
-        {children}
-    </main>
+            }} />
+          {children}
+      </main>
+    </Provider>
+
   );
 }
