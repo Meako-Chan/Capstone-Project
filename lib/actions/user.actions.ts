@@ -3,11 +3,18 @@
 import User from "../models/user.model";
 import { connectToDB } from "../mongoose"
 
-export async function updateUser(userId: string): Promise<void> {
-    connectToDB();
+export const signIn = async () => {
+    try{
 
-    await User.findOneAndUpdate(
-        {id: userId},
-        {}
-    )
+    } catch (error){
+        console.error('Error', error)
+    }
+}
+
+export const signUp = async (userData: SignUpParams) => {
+    try{
+        //Create a user account
+    } catch (error){
+        console.error('Error', error)
+    }
 }
