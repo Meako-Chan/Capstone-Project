@@ -1,6 +1,7 @@
 "use client";
 
 import HeaderBox from '@/components/HeaderBox'
+import RecentTransactions from '@/components/RecentTransactions';
 import TotalBalanceBox from '@/components/TotalBalanceBox';
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from 'next/navigation';
@@ -20,7 +21,7 @@ const Home = () => {
     if (status === "loading") {
         return <div>Loading...</div>; // You can replace this with a loading spinner if needed
     }
-    
+
     return (
         <section className="home">
             <div className="home-content">
@@ -38,7 +39,10 @@ const Home = () => {
                     totalCurrentBalance={1250.68}
                 />
                 </header>
-                Recent Transactions
+                
+                <RecentTransactions
+
+                />
             </div>
         </section>
   )
