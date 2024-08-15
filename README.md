@@ -11,7 +11,9 @@ Built using the MERN stack along with Next.js & TailwindCSS, Aura is a banking p
 
 **Transaction History**: Provides a full-view of transaction history across all banks & accounts
 
-**Fund Transfer**: Allosws users to transfer money to other accounts
+**Fund Transfer**: Allows users to transfer money to other accounts
+
+**Note: Transaction viewing, card display and fund transfer have not been implemented as of yet.**
 
 ## Installation
 Ensure you have the following installed:
@@ -20,3 +22,22 @@ Ensure you have the following installed:
 - npm
 
 1. Clone the following Repository:
+```bash
+git clone https://github.com/Meako-Chan/Capstone-Project.git
+cd banking-app
+```
+2. Install dependencies:
+```bash
+npm install
+```
+3. Create a new file name `.env` in the root of the project (banking-app) and add the following environment variables:
+```env
+#Connection String to MongoDB Atlas Database
+MONGO_DB_URI=
+#Secret for using NextAuth.js
+AUTH_SECRET=
+```
+
+## Ackowledgments
+- Styling and Assets were made by adrianhajdin: https://github.com/adrianhajdin/banking
+   
